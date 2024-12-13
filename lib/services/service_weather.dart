@@ -12,7 +12,7 @@ class ServicesWeather {
         Uri.parse("$baseUrl/forecast.json?key=$apiKey&q=$cityName&days=7");
     http.Response response = await http.get(url);
 
-    Map<String, dynamic> data = jsonDecode(response.body);  
+    Map<String, dynamic> data = jsonDecode(response.body);
 
     WeatherModel weather = WeatherModel.fromJson(data);
 
