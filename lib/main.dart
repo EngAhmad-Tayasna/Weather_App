@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app_new/providers/weather_provider.dart';
 import 'package:weather_app_new/views/pages/home_page.dart';
 
 void main() {
@@ -10,9 +12,14 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+    return  ChangeNotifierProvider(
+      create: (context) {
+        return WeatherProvider();
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomePage(),
+      ),
     );
   }
 }
